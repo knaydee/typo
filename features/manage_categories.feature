@@ -17,3 +17,5 @@ Feature: Manage Categories
     When I fill in "category_name" with "mishmash"
     And I press "Save"
     Then I should see "Category was successfully saved."
+    And I should see "mishmash"
+    And I should have 1 new category
