@@ -10,4 +10,4 @@ Feature: Manage Articles
   Scenario: Create category page is shown
     Given I am on the admin page
     When I follow "Categories"
-    Then I should be on the add/edit category page
+    Then I should be on the new or edit category page
