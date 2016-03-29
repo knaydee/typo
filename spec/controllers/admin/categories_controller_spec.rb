@@ -20,9 +20,15 @@ describe Admin::CategoriesController do
     before(:each) do
       Category.new
     end
+
     it "should render template new" do
       get :new
       assert_template 'new'
+    end
+
+    it "should redirect to new template" do
+      get :new
+      assert_response :success
     end
   end
 
