@@ -1,13 +1,13 @@
 Feature: Merge articles
   As a blog administrator
   In order to improve UX
-  I want to be able to merge my article with another similar article
+  I want to be able to merge articles with other similar articles
 
   Background:
     Given the blog is set up
     And I am logged into the admin panel
-    And I am not an admin 
 
-  Scenario: Merge articles field is shown
-    Given I am on the article view page
+  Scenario: Merge articles field is shown for admins only
+    Given I am on the new article page
+    And I am not an admin
     When I follow "New Article"
