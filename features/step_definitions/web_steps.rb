@@ -41,6 +41,12 @@ Given /^the blog is set up$/ do
                 :profile_id => 1,
                 :name => 'admin',
                 :state => 'active'})
+  User.create!({:login => 'not admin',
+                :password => 'bbbbb',
+                :email => 'nojoe@snow.com',
+                :profile_id => 2,
+                :name => 'not admin',
+                :state => 'active'})
 end
 
 And /^I am logged into the admin panel$/ do
@@ -55,13 +61,25 @@ And /^I am logged into the admin panel$/ do
   end
 end
 
-And /^I am not an admin$/ do
-  User.name != 'admin'
+And /^I am logged into the admin panel as a non admin$/ do
+  visit '/accounts/login'
+  fill_in 'user_login', :with => 'not admin'
+  fill_in 'user_password', :with => 'bbbbb'
+  click_button 'Login'
+  if page.respond_to? :should
+    page.should have_content('Login successful')
+  else
+    assert page.has_content?('Login successful')
+  end
 end
 
-And /^I am an admin$/ do
-  User.name == 'admin'
-end
+# And /^I am not an admin$/ do
+#   User.name != 'admin'
+# end
+#
+# And /^I am an admin$/ do
+#   User.name == 'admin'
+# end
 
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
