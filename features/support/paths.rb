@@ -25,6 +25,8 @@ module NavigationHelpers
       '/admin/content'
     when /^the admin edit content page$/
       '/admin/content/edit'
+    when /^the category edit page$/
+      '/admin/catogories/edit'
 
 
     # Add more mappings here.
