@@ -147,7 +147,7 @@
       <%= render 'admin/content/attachment', { :attachment_num => 1, :hidden => false } -%>
     </ul>
   </div>
-  <% if current_user.admin? %>
+  <% if current_user.admin? && @article.title != nil %>
     <h4>Merge Articles</h4>
     <!-- <p>
       put Article ID field here and Merge Button for edit form only
