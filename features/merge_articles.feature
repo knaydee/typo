@@ -17,4 +17,4 @@ Feature: Merge articles
     Given I am on the admin page
     And I am an admin
     When I follow "New Article"
-    Then I should not see "merge_with"
+    Then I should see "Merge Articles"
