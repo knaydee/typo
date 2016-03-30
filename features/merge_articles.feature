@@ -8,13 +8,13 @@ Feature: Merge articles
     And I am logged into the admin panel
 
   Scenario: Merge articles field is not shown for non admins
-    Given I am on the admin page
+    Given I am on the admin content page
     And I am not an admin
-    When I follow "New Article"
-    Then I should not see "merge_with"
+    When I follow "Edit"
+    Then I should not see "Error, you are not allowed to perform this action"
 
   Scenario: Merge articles field is shown for admins
-    Given I am on the admin page
+    Given I am on the admin content page
     And I am an admin
-    When I follow "New Article"
-    Then I should see "Merge Articles"
+    When I follow "Edit"
+    Then I should see "merge_with"
