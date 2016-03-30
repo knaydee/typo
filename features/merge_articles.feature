@@ -8,6 +8,7 @@ Feature: Merge articles
     And I am logged into the admin panel
 
   Scenario: Merge articles field is shown for admins only
-    Given I am on the new article page
+    Given I am on the admin page
     And I am not an admin
     When I follow "New Article"
+    Then I should not see "merge_with"
