@@ -55,6 +55,14 @@ And /^I am logged into the admin panel$/ do
   end
 end
 
+And /^I am not an admin$/ do
+  User.name != 'admin'
+end
+
+And /^I am an admin$/ do
+  User.name == 'admin'
+end
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
@@ -163,7 +171,6 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
 end
 
 Then /^I should have (\d+) new category$/ do |count|
-  # pending # express the regexp above with the code you wish you had
   # expect{Category.count}.to change{Category.count}.by(arg1)
   Category.count.should == count.to_i + 1
 end

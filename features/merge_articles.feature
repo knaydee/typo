@@ -7,8 +7,14 @@ Feature: Merge articles
     Given the blog is set up
     And I am logged into the admin panel
 
-  Scenario: Merge articles field is shown for admins only
+  Scenario: Merge articles field is not shown for non admins
     Given I am on the admin page
     And I am not an admin
+    When I follow "New Article"
+    Then I should not see "merge_with"
+
+  Scenario: Merge articles field is shown for admins
+    Given I am on the admin page
+    And I am an admin
     When I follow "New Article"
     Then I should not see "merge_with"
